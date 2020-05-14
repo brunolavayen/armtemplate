@@ -1,0 +1,10 @@
+az group create -n cloud5minsAz -l brazil-south
+
+# validate command
+az group deployment validate -g franco-dev --template-file "deployments/deploy.json" --verbose 
+
+# validate with Parameter file
+az group deployment validate -g franco-dev --template-file "deployments/deploy.json" --parameters "deployments/deploy.parameters.json"  --verbose 
+
+# deploy it
+az deployment group create -n deployTestCoco -g franco-dev --template-file "deployments/deploy.json" --parameters "deployments/deploy.parameters.json"  --verbose 
